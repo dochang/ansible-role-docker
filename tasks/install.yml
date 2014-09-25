@@ -1,0 +1,43 @@
+---
+- name: include os specific variables
+  include_vars: '{{ item }}'
+  # All files are stored in `files/vars` because the lookup plugin
+  # `with_first_found` looks in `files/`.
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution | lower }}.yml'
+        - '{{ ansible_os_family | lower }}.yml'
+        - default.yml
+      paths:
+        - vars
+
+
+
+- include: 'installer/apt.yml'
+  when: docker_installer == 'apt'
+
+- include: 'installer/pacman.yml'
+  when: docker_installer == 'pacman'
+
+- include: 'installer/yum.yml'
+  when: docker_installer == 'yum'
+
+- include: 'installer/default.yml'
+  when: docker_installer == 'default'
+
+
+
+- name: ensure "docker" group present
+  group:
+    name: docker
+    state: present
+    system: yes
+
+- name: add user into "docker"
+  user:
+    append: yes
+    groups: docker
+    state: present
+    # Use `ansible_ssh_user` rather than `ansible_user_id`, since
+    # `ansible_user_id` will be `root` if `sudo` is `yes`.
+    name: '{{ ansible_ssh_user }}'

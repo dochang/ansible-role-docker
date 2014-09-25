@@ -1,0 +1,12 @@
+---
+- include: install.yml
+
+- name: enable docker service
+  service:
+    name: docker
+    enabled: yes
+
+- name: start docker
+  service:
+    name: docker
+    state: started

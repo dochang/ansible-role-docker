@@ -1,0 +1,4 @@
+---
+- name: docker is not supported
+  fail:
+    msg: '{{ (ansible_lsb is defined and ansible_lsb.id) or ansible_distribution }} is not supported.'

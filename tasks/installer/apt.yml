@@ -1,0 +1,17 @@
+---
+- name: install curl
+  apt:
+    pkg: curl
+    state: present
+
+- name: install docker by apt
+  shell: curl -sSL https://get.docker.io/ubuntu/ | sh
+
+- name: ensure docker installed
+  apt:
+    pkg: '{{ docker_package }}'
+    state: present
+# Dependencies of lxc-docker-<version>:
+#
+# Depends: iptables
+# Recommends: aufs-tools, ca-certificates, git, xz-utils, cgroupfs-mount | cgroup-lite

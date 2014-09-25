@@ -1,0 +1,3 @@
+---
+docker_installer: yum
+docker_package: docker
