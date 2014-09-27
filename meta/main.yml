@@ -31,14 +31,14 @@ galaxy_info:
     versions:
     - 19
     - 20
-  #- name: opensuse
-  #  versions:
+  - name: opensuse
+    versions:
   #  - all
   #  - 12.1
   #  - 12.2
-  #  - 12.3
-  #  - 13.1
-  #  - 13.2
+    - 12.3
+    - 13.1
+    - 13.2
   #- name: Amazon
   #  versions:
   #  - all

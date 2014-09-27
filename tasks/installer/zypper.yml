@@ -1,0 +1,16 @@
+---
+- name: add gpg key to openSUSE rpm database
+  rpm_key:
+    key: 'http://download.opensuse.org/repositories/Virtualization/openSUSE_{{ ansible_distribution_version }}/repodata/repomd.xml.key'
+    state: present
+
+- name: add repository for docker on openSUSE
+  zypper_repository:
+    name: Virtualization
+    repo: 'http://download.opensuse.org/repositories/Virtualization/openSUSE_{{ ansible_distribution_version }}/'
+    state: present
+
+- name: install docker by zypper
+  zypper:
+    name: '{{ docker_package }}'
+    state: present
