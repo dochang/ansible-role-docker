@@ -1,0 +1,1 @@
+%docker	ALL=(ALL:ALL) NOPASSWD: {{ docker_sudo_commands }}

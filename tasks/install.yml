@@ -36,6 +36,15 @@
     state: present
     system: yes
 
+- name: configure sudo
+  template:
+    src: etc/sudoers.d/docker
+    dest: /etc/sudoers.d/docker
+    owner: root
+    group: root
+    mode: 0440
+    validate: 'visudo -cf %s'
+
 - name: add user into "docker"
   user:
     append: yes
