@@ -45,11 +45,10 @@
     mode: 0440
     validate: 'visudo -cf %s'
 
-- name: add user into "docker"
+- name: add users into "docker"
   user:
     append: yes
     groups: docker
     state: present
-    # Use `ansible_ssh_user` rather than `ansible_user_id`, since
-    # `ansible_user_id` will be `root` if `sudo` is `yes`.
-    name: '{{ ansible_ssh_user }}'
+    name: '{{ item }}'
+  with_items: docker_users
