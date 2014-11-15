@@ -1,17 +1,23 @@
 ---
-- name: install curl
+- name: ensure `apt-transport-https` installed
   apt:
-    pkg: curl
+    pkg: apt-transport-https
     state: present
 
-- name: install docker by apt
-  shell: curl -sSL https://get.docker.io/ubuntu/ | sh
+- name: add the Docker repository key to keychain
+  apt_key:
+    id: 36A1D7869245C8950F966E92D8576A8BA88D21E9
+    keyserver: hkp://keyserver.ubuntu.com:80
+    state: present
+    validate_certs: yes
 
-- name: ensure docker installed
+- name: add the Docker repository to apt sources list
+  apt_repository:
+    repo: 'deb https://get.docker.com/ubuntu docker main'
+    state: present
+    update_cache: yes
+
+- name: install docker by apt
   apt:
     pkg: '{{ docker_package }}'
     state: present
-# Dependencies of lxc-docker-<version>:
-#
-# Depends: iptables
-# Recommends: aufs-tools, ca-certificates, git, xz-utils, cgroupfs-mount | cgroup-lite

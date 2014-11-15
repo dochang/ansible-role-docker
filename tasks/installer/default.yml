@@ -1,4 +1,10 @@
 ---
-- name: docker is not supported
-  fail:
-    msg: '{{ ansible_distribution }} is not supported.'
+- name: download official docker install helper script
+  get_url:
+    url: https://get.docker.com/
+    dest: '{{ docker_install_helper_script }}'
+    mode: 0755
+    validate_certs: yes
+
+- name: run docker install helper script
+  command: '{{ docker_install_helper_script }}'
