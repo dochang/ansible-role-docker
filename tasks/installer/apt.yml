@@ -1,7 +1,7 @@
 ---
 - name: ensure `apt-transport-https` installed
   apt:
-    pkg: apt-transport-https
+    name: apt-transport-https
     state: present
 
 - name: add the Docker repository key to keychain
@@ -19,5 +19,5 @@
 
 - name: install docker by apt
   apt:
-    pkg: '{{ docker_package }}'
+    name: '{{ docker_package }}'
     state: present
