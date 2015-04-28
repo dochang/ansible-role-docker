@@ -11,8 +11,7 @@ None
 Role Variables
 --------------
 
-  - docker_sudo_commands
-  - docker_users
+  - `docker_users`
 
 Dependencies
 ------------
