@@ -42,4 +42,4 @@
     groups: docker
     state: present
     name: '{{ item }}'
-  with_items: docker_users
+  with_items: docker_users or []
