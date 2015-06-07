@@ -1,15 +1,13 @@
 ---
 - name: include os specific variables
   include_vars: '{{ item }}'
-  # All files are stored in `files/vars` because the lookup plugin
-  # `with_first_found` looks in `files/`.
   with_first_found:
     - files:
         - '{{ ansible_distribution | lower }}.yml'
         - '{{ ansible_os_family | lower }}.yml'
         - default.yml
       paths:
-        - vars
+        - installer
 
 
 
