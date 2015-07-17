@@ -1,6 +1,8 @@
 Docker
 ======
 
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-dochang.docker-blue.svg)](https://galaxy.ansible.com/list#/roles/1816)
+
 An ansible role to install docker on several GNU/Linux distributions.
 
 Requirements
