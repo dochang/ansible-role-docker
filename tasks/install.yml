@@ -29,10 +29,13 @@
 
 
 - name: install docker-py
-  pip:
-    name: docker-py
-    state: present
-    executable: pip2
+  pip: >-
+    'name=docker-py'
+    'state=present'
+    'executable=pip2'
+    {% if docker_dockerpy_version is defined and docker_dockerpy_version %}
+    'version={{ docker_dockerpy_version }}'
+    {% endif %}
 
 - name: ensure "docker" group present
   group:
