@@ -1,3 +1,0 @@
----
-docker_installer: apt
-docker_package: lxc-docker

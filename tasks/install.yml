@@ -11,17 +11,8 @@
 
 
 
-- include: 'installer/apt.yml'
-  when: docker_installer == 'apt'
-
 - include: 'installer/pacman.yml'
   when: docker_installer == 'pacman'
-
-- include: 'installer/yum.yml'
-  when: docker_installer == 'yum'
-
-- include: 'installer/zypper.yml'
-  when: docker_installer == 'zypper'
 
 - include: 'installer/default.yml'
   when: docker_installer == 'default'
