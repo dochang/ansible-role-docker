@@ -26,7 +26,7 @@
     groups: docker
     state: present
     name: '{{ item }}'
-  with_items: docker_users or []
+  with_items: '{{ docker_users or [] }}'
 
 - name: enable docker service
   service:
