@@ -1,6 +1,7 @@
 Docker
 ======
 
+[![Build Status](https://travis-ci.org/dochang/ansible-role-docker.svg?branch=master)](https://travis-ci.org/dochang/ansible-role-docker)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-dochang.docker-blue.svg)](https://galaxy.ansible.com/list#/roles/1816)
 [![Issue Stats](http://issuestats.com/github/dochang/ansible-role-docker/badge/pr)](http://www.issuestats.com/github/dochang/ansible-role-docker)
 [![Issue Stats](http://issuestats.com/github/dochang/ansible-role-docker/badge/issue)](http://www.issuestats.com/github/dochang/ansible-role-docker)
