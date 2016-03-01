@@ -1,3 +1,34 @@
 ---
-- name: run docker official install script
-  shell: curl -sSL https://get.docker.com/ | sh
+- name: generate download filename
+  command: mktemp
+  register: download_filename
+  changed_when: false
+  always_run: yes
+  tags:
+    - always
+
+- name: download docker official install script
+  get_url:
+    dest: '{{ download_filename.stdout }}'
+    url: https://get.docker.com
+    validate_certs: yes
+
+- name: replace repo uri in the script
+  replace:
+    dest: '{{ download_filename.stdout }}'
+    regexp: '{{ item.regexp }}'
+    replace: '{{ item.replace }}'
+    validate: 'sh -n %s'
+  with_items:
+    - regexp: '{{ "https://apt.dockerproject.org" | regex_escape }}'
+      replace: '{{ docker_apt_source_uri | regex_replace("/*$", "") }}'
+    - regexp: '{{ "https://yum.dockerproject.org" | regex_escape }}'
+      replace: '{{ docker_yum_source_uri | regex_replace("/*$", "") }}'
+
+- name: run the script
+  command: '/bin/sh {{ download_filename.stdout }}'
+
+- name: delete downloaded file
+  file:
+    path: '{{ download_filename.stdout }}'
+    state: absent

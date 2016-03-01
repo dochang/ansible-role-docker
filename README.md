@@ -17,6 +17,8 @@ Role Variables
 --------------
 
   - `docker_users`
+  - `docker_apt_source_uri`
+  - `docker_yum_source_uri`
 
 Dependencies
 ------------
