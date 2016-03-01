@@ -10,6 +10,7 @@
 - name: download docker official install script
   get_url:
     dest: '{{ download_filename.stdout }}'
+    force: yes
     url: https://get.docker.com
     validate_certs: yes
 
