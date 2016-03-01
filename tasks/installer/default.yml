@@ -14,7 +14,7 @@
     url: https://get.docker.com
     validate_certs: yes
 
-- name: replace repo uri in the script
+- name: replace source uri in the script
   replace:
     dest: '{{ download_filename.stdout }}'
     regexp: '{{ item.regexp }}'
