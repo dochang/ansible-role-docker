@@ -1,8 +1,12 @@
 ---
 - name: check whether docker exists
-  shell: command -v docker >/dev/null 2>&1
+  shell: command -v docker
   ignore_errors: True
   register: result
+  changed_when: false
+  always_run: yes
+  tags:
+    - always
 
 - include: install.yml
   when: result | failed
