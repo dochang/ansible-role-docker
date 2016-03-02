@@ -2,7 +2,7 @@
 - name: generate download filename
   set_fact:
     docker_install_script_filename: >-
-      {{ ansible_env["TMPDIR"] | default("/tmp") }}/{{ (ansible_user_id + ansible_date_time.epoch) | to_uuid }}
+      {{ ansible_env.TMPDIR | default("/tmp") }}/{{ (ansible_user_id + ansible_date_time.epoch) | to_uuid }}
   always_run: yes
   tags:
     - always
