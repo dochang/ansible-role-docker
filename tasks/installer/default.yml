@@ -1,22 +1,14 @@
 ---
-- name: generate download filename
-  set_fact:
-    docker_install_script_filename: >-
-      {{ ansible_env.TMPDIR | default("/tmp") }}/{{ (ansible_user_id + ansible_date_time.epoch) | to_uuid }}
-  always_run: yes
-  tags:
-    - always
-
 - name: download docker official install script
   get_url:
-    dest: '{{ docker_install_script_filename }}'
+    dest: '{{ docker_install_script_path }}'
     force: yes
     url: https://get.docker.com
     validate_certs: yes
 
 - name: replace source uri in the script
   replace:
-    dest: '{{ docker_install_script_filename }}'
+    dest: '{{ docker_install_script_path }}'
     regexp: '{{ item.regexp }}'
     replace: '{{ item.replace }}'
     validate: 'sh -n %s'
@@ -27,9 +19,9 @@
       replace: '{{ docker_yum_source_uri | regex_replace("/*$", "") }}'
 
 - name: run the script
-  command: '/bin/sh {{ docker_install_script_filename }}'
+  command: '/bin/sh {{ docker_install_script_path }}'
 
 - name: delete downloaded file
   file:
-    path: '{{ docker_install_script_filename }}'
+    path: '{{ docker_install_script_path }}'
     state: absent
