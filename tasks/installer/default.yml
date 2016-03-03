@@ -11,7 +11,7 @@
     dest: '{{ docker_install_script_path }}'
     regexp: '{{ item.regexp }}'
     replace: '{{ item.replace }}'
-    validate: 'sh -n %s'
+    validate: '/bin/sh -n %s'
   with_items:
     - regexp: '{{ "https://apt.dockerproject.org" | regex_escape }}'
       replace: '{{ docker_apt_source_uri | regex_replace("/*$", "") }}'
