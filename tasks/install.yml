@@ -7,6 +7,13 @@
         - '{{ ansible_os_family | lower }}.yml'
         - default.yml
       paths:
+        # `../vars/` is required because `with_first_found` looks in the
+        # `files/` directory.  See Ansible issues [7788][], [5108][] and this
+        # [page][] for details:
+        #
+        # [7788]: https://github.com/ansible/ansible/issues/7788
+        # [5108]: https://github.com/ansible/ansible/issues/5108
+        # [page]: https://groups.google.com/forum/#!topic/ansible-project/UQ_ArPEofFU
         - ../vars/installer
 
 
