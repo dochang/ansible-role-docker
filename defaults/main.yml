@@ -3,4 +3,3 @@ docker_users: []
 docker_apt_source_uri: https://apt.dockerproject.org
 docker_yum_source_uri: https://yum.dockerproject.org
 docker_download_dir: '{{ ansible_env.TMPDIR | default("/tmp") }}'
-docker_install_script_path: '{{ docker_download_dir }}/ansible-docker-{{ ansible_user_uid }}-{{ ansible_date_time.epoch }}-{{ (2**48) | random }}'

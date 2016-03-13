@@ -1,4 +1,9 @@
 ---
+- name: create install script temp file path
+  set_fact:
+    docker_install_script_path: '{{ docker_download_dir }}/ansible-docker-{{ ansible_user_uid }}-{{ ansible_date_time.epoch }}-{{ (2**48) | random }}'
+  run_once: true
+
 - name: download docker official install script
   get_url:
     dest: '{{ docker_install_script_path }}'
