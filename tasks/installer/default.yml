@@ -12,6 +12,7 @@
     validate_certs: yes
 
 - name: replace source uri in the script
+  become: yes
   replace:
     dest: '{{ docker_install_script_path }}'
     regexp: '{{ item.regexp }}'
