@@ -5,8 +5,6 @@
   register: result
   changed_when: false
   always_run: yes
-  tags:
-    - always
 
 - include: install.yml
   when: result | failed
