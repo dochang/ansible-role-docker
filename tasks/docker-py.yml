@@ -1,0 +1,17 @@
+---
+- name: include os specific variables
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+        - default.yml
+      paths:
+        - ../vars/installer
+
+- name: install docker-py
+  pip: >-
+    name=docker-py
+    state=present
+    executable={{ pip2_executable }}
+    version={{ docker_dockerpy_version | default(omit) }}

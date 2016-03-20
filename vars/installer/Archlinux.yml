@@ -1,3 +1,4 @@
 ---
 docker_installer: pacman
 docker_package: docker
+pip2_executable: pip2
