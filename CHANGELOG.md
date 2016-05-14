@@ -2,6 +2,10 @@
 
 ## [Unreleased] ##
 
+### Fixed ###
+
+  - Fix `min_ansible_version`
+
 ## [1.0.0] - 2016-04-14 ##
 
 ### Added ###
