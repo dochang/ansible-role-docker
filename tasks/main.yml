@@ -4,7 +4,6 @@
   ignore_errors: True
   register: result
   changed_when: false
-  always_run: yes
 
 - name: include os specific variables
   include_vars: '{{ item }}'
@@ -24,7 +23,7 @@
         - ../vars/installer
 
 - include: install.yml
-  when: result | failed
+  when: result is defined and result | failed
 
 - name: install docker-py
   pip:

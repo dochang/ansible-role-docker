@@ -2,6 +2,10 @@
 
 ## [Unreleased] ##
 
+### Removed ###
+
+  - Remove `always_run`, which is deprecated in Ansible 2.2
+
 ### Fixed ###
 
   - Fix `min_ansible_version`
