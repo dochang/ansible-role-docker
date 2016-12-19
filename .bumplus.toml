@@ -1,0 +1,20 @@
+version = '1.0.0'
+
+[[files."CHANGELOG.md"]]
+search = """
+## [Unreleased]
+"""
+replace = """
+## [Unreleased]
+
+## [{{new_version}}] - {{utcnow | strftime('%Y-%m-%d')}}
+"""
+
+[[files."CHANGELOG.md"]]
+search = """
+[Unreleased]: https://github.com/dochang/ansible-role-docker/compare/{{old_version}}...HEAD
+"""
+replace = """
+[Unreleased]: https://github.com/dochang/ansible-role-docker/compare/{{new_version}}...HEAD
+[{{new_version}}]: https://github.com/dochang/ansible-role-docker/compare/{{old_version}}...{{new_version}}
+"""
