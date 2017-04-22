@@ -44,6 +44,7 @@
     groups: docker
     state: present
     name: '{{ item }}'
+  when: not ansible_check_mode
   with_items: '{{ docker_users or [] }}'
 
 - name: enable docker service
