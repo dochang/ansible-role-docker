@@ -52,12 +52,18 @@
   # cause the module failed even in check mode.  So we have to skip this task
   # in such case.
 
-- name: enable docker service
-  service:
-    name: docker
-    enabled: yes
+- block:
 
-- name: start docker
-  service:
-    name: docker
-    state: started
+    - name: enable docker service
+      service:
+        name: docker
+        enabled: yes
+
+    - name: start docker
+      service:
+        name: docker
+        state: started
+
+  when: not (docker_installed | skipped)
+  # In check mode, docker_installed is skipped.  We're unable to check whether
+  # docker is installed.  So skip these tasks.
