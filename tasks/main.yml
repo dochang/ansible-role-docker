@@ -37,6 +37,7 @@
     name: docker
     state: present
     system: yes
+  register: docker_group_created
 
 - name: add users into "docker"
   user:
@@ -45,6 +46,11 @@
     state: present
     name: '{{ item }}'
   with_items: '{{ docker_users or [] }}'
+  when: (not ansible_check_mode) or (not (docker_group_created | changed))
+  # If the group task returns a "changed" result in check mode, it means the
+  # "docker" group does not exist.  Adding users to a non-existing group will
+  # cause the module failed even in check mode.  So we have to skip this task
+  # in such case.
 
 - name: enable docker service
   service:
