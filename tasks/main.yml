@@ -2,7 +2,7 @@
 - name: check whether docker exists
   shell: command -v docker
   ignore_errors: True
-  register: result
+  register: docker_installed
   changed_when: false
 
 - name: include os specific variables
@@ -23,7 +23,7 @@
         - ../vars/installer
 
 - include: install.yml
-  when: result is defined and result | failed
+  when: docker_installed is defined and docker_installed | failed
 
 - name: install docker-py
   pip:

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed ###
+
+  - Follow Ansible naming convention
+
 ### Fixed ###
 
   - Fix #14
