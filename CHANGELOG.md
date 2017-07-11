@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added ###
+
+  - Add variable `docker_dockerpy_version`
+
 ## [1.2.0] - 2017-06-29
 
 ### Changed ###
