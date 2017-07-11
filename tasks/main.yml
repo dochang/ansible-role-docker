@@ -5,7 +5,22 @@
   register: docker_installed
   changed_when: false
 
-- include: installer/default.yml
+- name: include install tasks
+  include: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+        - default.yml
+      paths:
+        # `../tasks/` is required because `with_first_found` looks in the
+        # `files/` directory.  See Ansible issues [7788][], [5108][] and this
+        # [page][] for details:
+        #
+        # [7788]: https://github.com/ansible/ansible/issues/7788
+        # [5108]: https://github.com/ansible/ansible/issues/5108
+        # [page]: https://groups.google.com/forum/#!topic/ansible-project/UQ_ArPEofFU
+        - ../tasks/installer
   when: docker_installed | failed
 
 - name: install docker-py

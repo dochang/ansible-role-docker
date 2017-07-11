@@ -2,6 +2,10 @@
 
 ## [Unreleased] ##
 
+### Changed ###
+
+  - Replace `include_vars` with dynamic include.
+
 ## [3.0.0] - 2017-07-24 ##
 
 ### Added ###
