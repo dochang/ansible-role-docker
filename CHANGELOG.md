@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [2.0.0] - 2017-07-11
+
 ### Added ###
 
   - Variable `docker_pip_executable`, which is used to install docker-py.
@@ -38,7 +40,8 @@
 
   - Initial release
 
-[Unreleased]: https://github.com/dochang/ansible-role-docker/compare/1.3.0...HEAD
+[Unreleased]: https://github.com/dochang/ansible-role-docker/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/dochang/ansible-role-docker/compare/1.3.0...2.0.0
 [1.3.0]: https://github.com/dochang/ansible-role-docker/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/dochang/ansible-role-docker/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/dochang/ansible-role-docker/compare/1.0.0...1.1.0
