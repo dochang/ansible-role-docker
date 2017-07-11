@@ -20,6 +20,7 @@ Role Variables
   - `docker_apt_source_uri`
   - `docker_yum_source_uri`
   - `docker_dockerpy_version` (Default: the latest version)
+  - `docker_pip_executable` (Default: auto detect by Ansible)
 
 Dependencies
 ------------

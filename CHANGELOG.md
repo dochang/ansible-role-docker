@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added ###
+
+  - Variable `docker_pip_executable`, which is used to install docker-py.
+
 ## [1.3.0] - 2017-07-11
 
 ### Added ###
