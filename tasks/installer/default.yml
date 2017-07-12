@@ -21,6 +21,8 @@
       replace: '{{ docker_apt_source_uri | regex_replace("/*$", "") }}'
     - regexp: '{{ "https://yum.dockerproject.org" | regex_escape }}'
       replace: '{{ docker_yum_source_uri | regex_replace("/*$", "") }}'
+    - regexp: '{{ "https://download.docker.com" | regex_escape }}'
+      replace: '{{ docker_ce_mirror_uri | regex_replace("/*$", "") }}'
 
 - name: run the script
   command: '/bin/sh {{ docker_install_script_path }}'

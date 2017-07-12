@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added ###
+
+  - Add variable `docker_ce_mirror_uri`.
+
 ## [2.0.0] - 2017-07-11
 
 ### Added ###
