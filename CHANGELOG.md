@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Fixed ###
+
+  - Fix roadmap
+
 ## [2.1.0] - 2017-07-23
 
 ### Added ###

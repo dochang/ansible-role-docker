@@ -6,8 +6,8 @@ Support customizing pip executable.
 
 ## 3.0
 
-Turn `include_vars` into dynamic `include`s.
+Switch to `docker-ce`.
 
 ## 4.0
 
-Switch to `docker-ce`.
+Turn `include_vars` into dynamic `include`s.
