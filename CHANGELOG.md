@@ -2,6 +2,10 @@
 
 ## [Unreleased] ##
 
+### Added ###
+
+  - Add migration guide
+
 ## [2.2.0] - 2017-07-23 ##
 
 ### Fixed ###
