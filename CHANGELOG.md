@@ -6,6 +6,10 @@
 
   - Add migration guide
 
+### Removed ###
+
+  - Remove code for Arch Linux
+
 ## [2.2.0] - 2017-07-23 ##
 
 ### Fixed ###

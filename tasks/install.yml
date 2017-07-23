@@ -1,6 +1,3 @@
 ---
-- include: 'installer/pacman.yml'
-  when: docker_installer == 'pacman'
-
 - include: 'installer/default.yml'
   when: docker_installer == 'default'
