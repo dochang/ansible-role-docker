@@ -2,12 +2,12 @@ version = '2.1.0'
 
 [[files."CHANGELOG.md"]]
 search = """
-## [Unreleased]
+## [Unreleased] ##
 """
 replace = """
-## [Unreleased]
+## [Unreleased] ##
 
-## [{{new_version}}] - {{utcnow | strftime('%Y-%m-%d')}}
+## [{{new_version}}] - {{utcnow | strftime('%Y-%m-%d')}} ##
 """
 
 [[files."CHANGELOG.md"]]

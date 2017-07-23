@@ -6,6 +6,7 @@
 
   - Fix roadmap
   - Fix changelog
+  - Fix bumplus config
 
 ## [2.1.0] - 2017-07-23 ##
 
