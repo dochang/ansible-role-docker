@@ -9,6 +9,7 @@
 ### Removed ###
 
   - Remove code for Arch Linux
+  - Remove unused variable files
 
 ## [2.2.0] - 2017-07-23 ##
 

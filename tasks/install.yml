@@ -1,3 +1,0 @@
----
-- include: 'installer/default.yml'
-  when: docker_installer == 'default'
