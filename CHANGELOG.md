@@ -1,30 +1,31 @@
 # Change Log #
 
-## [Unreleased]
+## [Unreleased] ##
 
 ### Fixed ###
 
   - Fix roadmap
+  - Fix changelog
 
-## [2.1.0] - 2017-07-23
+## [2.1.0] - 2017-07-23 ##
 
 ### Added ###
 
   - Add variable `docker_ce_mirror_uri`.
 
-## [2.0.0] - 2017-07-11
+## [2.0.0] - 2017-07-11 ##
 
 ### Added ###
 
   - Variable `docker_pip_executable`, which is used to install docker-py.
 
-## [1.3.0] - 2017-07-11
+## [1.3.0] - 2017-07-11 ##
 
 ### Added ###
 
   - Add variable `docker_dockerpy_version`
 
-## [1.2.0] - 2017-06-29
+## [1.2.0] - 2017-06-29 ##
 
 ### Changed ###
 
