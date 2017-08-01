@@ -4,7 +4,7 @@ python: "2.7"
 dist: trusty
 
 # Use the new container infrastructure
-sudo: false
+sudo: required
 
 # Install ansible
 addons:
