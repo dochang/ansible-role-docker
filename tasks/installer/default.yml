@@ -1,13 +1,23 @@
 ---
+- name: rename outer item
+  set_fact:
+    outer_item: '{{ item }}'
+
 # get.docker.com uses SNI certificate, which is not supported by Python until
 # Python 2.7.9.  Install urllib3 to verify SNI certs.
 #
 # https://github.com/ansible/ansible/issues/12161#issuecomment-136528093
 - name: install urllib3 to verify SNI certs
   pip:
-    name: urllib3
+    name: '{{ item }}'
     state: present
     executable: '{{ docker_pip_executable | default(omit) }}'
+  with_items:
+    - urllib3
+    - pyOpenSSL
+    - ndg-httpsclient
+    - pyasn1
+    - idna
 
 - name: create install script temp file path
   set_fact:
