@@ -26,6 +26,7 @@ install:
   - ansible --version
 
 script:
+  - curl -o get_docker.sh https://get.docker.com/
   - ansible-playbook tests/test.yml -i tests/inventory
 
 notifications:
