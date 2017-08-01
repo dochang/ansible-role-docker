@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
   remote_user: root
+  become_user: root
+  become: true
   roles:
     - docker
