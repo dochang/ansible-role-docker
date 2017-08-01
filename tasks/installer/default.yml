@@ -1,4 +1,14 @@
 ---
+# get.docker.com uses SNI certificate, which is not supported by Python until
+# Python 2.7.9.  Install urllib3 to verify SNI certs.
+#
+# https://github.com/ansible/ansible/issues/12161#issuecomment-136528093
+- name: install urllib3 to verify SNI certs
+  pip:
+    name: urllib3
+    state: present
+    executable: '{{ docker_pip_executable | default(omit) }}'
+
 - name: create install script temp file path
   set_fact:
     docker_install_script_path: '{{ docker_download_dir }}/ansible-docker-{{ ansible_user_uid }}-{{ ansible_date_time.epoch }}-{{ (2**48) | random }}'
