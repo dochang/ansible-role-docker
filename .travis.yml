@@ -10,17 +10,23 @@ addons:
   apt:
     packages:
       - python-pip
+      - ca-certificates
 
 install:
   # Install ansible
   - pip install ansible
 
+  # get.docker.com uses SNI certificate, which is not supported by Python until
+  # Python 2.7.9.  Install urllib3 to verify SNI certs.
+  #
+  # https://github.com/ansible/ansible/issues/12161#issuecomment-136528093
+  - pip install urllib3
+
   # Check ansible version
   - ansible --version
 
 script:
-  # Basic role syntax check
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+  - ansible-playbook tests/test.yml -i tests/inventory
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
