@@ -5,6 +5,7 @@
 ### Changed ###
 
   - Depends on Ansible 2.4+
+  - Use new import/include statements
 
 ### Fixed ###
 

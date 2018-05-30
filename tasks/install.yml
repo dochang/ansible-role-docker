@@ -1,0 +1,14 @@
+---
+- name: install docker
+  include_tasks: '{{ item }}'
+  with_first_found:
+    - files:
+        # We use `ansible_lsb.id` instead of `ansible_distribution`, because
+        # the value of `ansible_distribution` on Raspbian is `Debian`.  We want
+        # to detect the distribution more precisely, though we use the official
+        # install script from `https://get.docker.com/` for both.
+        - '{{ ansible_lsb.id }}.yml'
+        - '{{ ansible_os_family }}.yml'
+        - default.yml
+      paths:
+        - install

@@ -5,7 +5,7 @@
   register: docker_installed
   changed_when: false
 
-- include: installer/default.yml
+- include_tasks: install.yml
   when: docker_installed is failed
 
 - name: install docker-py

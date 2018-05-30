@@ -1,0 +1,22 @@
+---
+- name: create install script temp file path
+  set_fact:
+    docker_install_script_path: '{{ docker_download_dir }}/ansible-docker-{{ ansible_user_uid }}-{{ ansible_date_time.epoch }}-{{ (2**48) | random }}'
+
+- name: download docker official install script
+  get_url:
+    dest: '{{ docker_install_script_path }}'
+    force: yes
+    url: https://get.docker.com
+    validate_certs: yes
+
+- name: run the script
+  command: '/bin/sh {{ docker_install_script_path }}'
+  environment:
+    DOWNLOAD_URL: '{{ docker_ce_mirror_uri }}'
+    CHANNEL: '{{ docker_ce_channel }}'
+
+- name: delete downloaded file
+  file:
+    path: '{{ docker_install_script_path }}'
+    state: absent
