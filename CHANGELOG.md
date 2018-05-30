@@ -2,6 +2,10 @@
 
 ## [Unreleased] ##
 
+### Changed ###
+
+  - Depends on Ansible 2.4+
+
 ### Fixed ###
 
   - Test syntax
