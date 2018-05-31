@@ -2,6 +2,8 @@
 
 ## [Unreleased] ##
 
+## [4.0.0] - 2018-05-31 ##
+
 ### Changed ###
 
   - Depends on Ansible 2.4+
@@ -74,7 +76,8 @@
 
   - Initial release
 
-[Unreleased]: https://github.com/dochang/ansible-role-docker/compare/3.0.0...HEAD
+[Unreleased]: https://github.com/dochang/ansible-role-docker/compare/4.0.0...HEAD
+[4.0.0]: https://github.com/dochang/ansible-role-docker/compare/3.0.0...4.0.0
 [3.0.0]: https://github.com/dochang/ansible-role-docker/compare/2.2.0...3.0.0
 [2.2.0]: https://github.com/dochang/ansible-role-docker/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/dochang/ansible-role-docker/compare/2.0.0...2.1.0
