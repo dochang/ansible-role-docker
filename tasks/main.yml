@@ -6,7 +6,7 @@
   changed_when: false
 
 - include: installer/default.yml
-  when: docker_installed | failed
+  when: docker_installed is failed
 
 - name: install docker-py
   pip:
@@ -29,7 +29,7 @@
     state: present
     name: '{{ item }}'
   with_items: '{{ docker_users or [] }}'
-  when: (not ansible_check_mode) or (not (docker_group_created | changed))
+  when: (not ansible_check_mode) or (not (docker_group_created is changed))
   # If the group task returns a "changed" result in check mode, it means the
   # "docker" group does not exist.  Adding users to a non-existing group will
   # cause the module failed even in check mode.  So we have to skip this task
@@ -47,6 +47,6 @@
         name: docker
         state: started
 
-  when: not (docker_installed | skipped)
+  when: not (docker_installed is skipped)
   # In check mode, docker_installed is skipped.  We're unable to check whether
   # docker is installed.  So skip these tasks.

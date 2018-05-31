@@ -2,6 +2,10 @@
 
 ## [Unreleased] ##
 
+### Fixed ###
+
+  - Test syntax
+
 ## [3.0.0] - 2017-07-24 ##
 
 ### Added ###
