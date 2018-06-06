@@ -1,6 +1,6 @@
 ---
 - name: check whether docker exists
-  shell: command -v docker
+  shell: 'command -v docker >/dev/null 2>&1'
   ignore_errors: True
   register: docker_installed
   changed_when: false
