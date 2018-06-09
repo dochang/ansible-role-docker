@@ -3,3 +3,4 @@ docker_users: []
 docker_ce_mirror_uri: https://download.docker.com
 docker_ce_channel: edge
 docker_download_dir: '{{ ansible_env.TMPDIR | default("/tmp") }}'
+docker_dockerpy_use_tls: no

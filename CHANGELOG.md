@@ -2,6 +2,10 @@
 
 ## [Unreleased] ##
 
+### Changed ###
+
+  - Install Python Docker library based on Python version
+
 ## [4.0.0] - 2018-05-31 ##
 
 ### Changed ###

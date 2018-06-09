@@ -8,12 +8,21 @@
 - include_tasks: install.yml
   when: docker_installed is failed
 
-- name: install docker-py
+- name: install Python Docker library
+  pip:
+    name: '{{ docker_dockerpy_use_tls | ternary("docker[tls]", "docker") }}'
+    state: present
+    executable: '{{ docker_pip_executable | default(omit) }}'
+    version: '{{ docker_dockerpy_version | default(omit) }}'
+  when: ansible_python_version is version_compare('2.7', '>=')
+
+- name: install Python Docker library
   pip:
     name: docker-py
     state: present
     executable: '{{ docker_pip_executable | default(omit) }}'
     version: '{{ docker_dockerpy_version | default(omit) }}'
+  when: ansible_python_version is version_compare('2.7', '<')
 
 - name: ensure "docker" group present
   group:
