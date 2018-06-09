@@ -1,5 +1,10 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+    docker_ce_mirror_uri: 'https://mirrors.ustc.edu.cn/docker-ce'
+    config_dockerd_config:
+      registry-mirrors:
+        - https://docker.mirrors.ustc.edu.cn
   roles:
     - role: ansible-role-docker
