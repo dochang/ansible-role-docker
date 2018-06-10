@@ -2,6 +2,8 @@
 
 ## [Unreleased] ##
 
+## [5.0.0] - 2018-06-10 ##
+
 ### Changed ###
 
   - Install Python Docker library based on Python version
@@ -80,7 +82,8 @@
 
   - Initial release
 
-[Unreleased]: https://github.com/dochang/ansible-role-docker/compare/4.0.0...HEAD
+[Unreleased]: https://github.com/dochang/ansible-role-docker/compare/5.0.0...HEAD
+[5.0.0]: https://github.com/dochang/ansible-role-docker/compare/4.0.0...5.0.0
 [4.0.0]: https://github.com/dochang/ansible-role-docker/compare/3.0.0...4.0.0
 [3.0.0]: https://github.com/dochang/ansible-role-docker/compare/2.2.0...3.0.0
 [2.2.0]: https://github.com/dochang/ansible-role-docker/compare/2.1.0...2.2.0
