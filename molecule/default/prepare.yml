@@ -1,0 +1,62 @@
+---
+- name: Prepare
+
+  hosts: all
+
+  vars_files:
+    - - 'vars/lsb-release/{{ ansible_distribution }}.yml'
+      - 'vars/lsb-release/{{ ansible_os_family }}.yml'
+      - 'vars/lsb-release/default.yml'
+
+  tasks:
+
+    - name: install lsb_release
+      package:
+        name: '{{ lsbrelease_package }}'
+        state: present
+
+    - name: regather facts from lsb_release
+      setup:
+
+    - block:
+
+        - name: ensure apt-transport-https installed
+          apt:
+            name: apt-transport-https
+            state: present
+
+        - import_role:
+            name: dochang.aptsource
+
+        - name: upgrade system
+          apt:
+            upgrade: safe
+
+      when: ansible_pkg_mgr == 'apt'
+
+    - name: config pypi index url
+      ini_file:
+        dest: '~/.config/pip/pip.conf'
+        section: global
+        option: index-url
+        value: '{{ pip_index_url }}'
+        state: present
+
+    - import_role:
+        name: dochang.pip
+
+    - name: ensure /etc/docker present
+      file:
+        path: /etc/docker
+        group: root
+        owner: root
+        mode: '700'
+        state: directory
+
+    - name: config dockerd
+      copy:
+        dest: '/etc/docker/daemon.json'
+        content: "{{ dockerd_config | to_nice_json }}\n"
+        group: root
+        owner: root
+        mode: '600'

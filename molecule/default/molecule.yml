@@ -12,6 +12,9 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
+  inventory:
+    links:
+      group_vars: group_vars_${TEST_GROUP:-default}
 scenario:
   name: default
 verifier:

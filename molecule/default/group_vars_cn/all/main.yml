@@ -1,0 +1,16 @@
+---
+aptsource_sources_enabled: no
+aptsource_debian_uri: https://mirrors.ustc.edu.cn/debian
+aptsource_debian_security_uri: https://mirrors.ustc.edu.cn/debian-security
+aptsource_debian_stable_updates_enabled: yes
+aptsource_debian_stable_updates_uri: https://mirrors.ustc.edu.cn/debian
+aptsource_debian_backports_enabled: no
+aptsource_debian_backports_uri: https://mirrors.ustc.edu.cn/debian
+aptsource_debian_components:
+  - main
+pip_index_url: 'https://mirrors.ustc.edu.cn/pypi/web/simple'
+docker_ce_mirror_uri: 'https://mirrors.ustc.edu.cn/docker-ce'
+dockerd_config:
+  disable-legacy-registry: true
+  registry-mirrors:
+    - https://docker.mirrors.ustc.edu.cn

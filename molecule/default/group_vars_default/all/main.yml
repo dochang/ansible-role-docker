@@ -1,0 +1,9 @@
+---
+aptsource_sources_enabled: no
+aptsource_debian_stable_updates_enabled: yes
+aptsource_debian_backports_enabled: no
+aptsource_debian_components:
+  - main
+pip_index_url: 'https://pypi.org/simple'
+dockerd_config:
+  disable-legacy-registry: true
