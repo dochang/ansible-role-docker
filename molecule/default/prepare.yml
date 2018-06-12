@@ -3,12 +3,24 @@
 
   hosts: all
 
+  gather_facts: false
+
   vars_files:
     - - 'vars/lsb-release/{{ ansible_distribution }}.yml'
       - 'vars/lsb-release/{{ ansible_os_family }}.yml'
       - 'vars/lsb-release/default.yml'
 
   tasks:
+
+    - name: run setup script
+      script: 'prepare.sh'
+      environment:
+        APT_DEBIAN_URI: '{{ aptsource_debian_uri }}'
+        APT_DEBIAN_SECURITY_URI: '{{ aptsource_debian_security_uri }}'
+
+    - name: bootstrap
+      import_role:
+        name: dochang.bootstrap
 
     - name: install lsb_release
       package:
@@ -17,22 +29,6 @@
 
     - name: regather facts from lsb_release
       setup:
-
-    - block:
-
-        - name: ensure apt-transport-https installed
-          apt:
-            name: apt-transport-https
-            state: present
-
-        - import_role:
-            name: dochang.aptsource
-
-        - name: upgrade system
-          apt:
-            upgrade: safe
-
-      when: ansible_pkg_mgr == 'apt'
 
     - name: config pypi index url
       ini_file:
